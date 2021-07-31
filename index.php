@@ -32,31 +32,46 @@ for ($i = 1; $i <= 10000; $i++) {
   }
 
   //５次元配列
-
-$muscle = array(isset($nutrition), isset($play), isset($sleep));
-
-
-$nutrition = array(isset($meal), isset($timing));
-$play = array(isset($training), isset($busy));
-$sleep = array(isset($high_quality));
-
-$meal = array(isset($fat), isset($protein), isset($carbo));
-$timing = array(isset($morning), isset($lunch), isset($dinner));
-$training = array(isset($wait), isset($aerobic));
-$busy = array(isset($exercise), isset($jim));
-$high_quality = array(isset($hoursleep), isset($comfortable));
-
-$fat = array('アボカド', 'ナッツ類', 'オリーブオイル');
+$fat = array('アボカド', 'ナッツ類','オリーブオイル');
 $protein = array('肉類', '乳製品', '豆類');
-$carbo = array('米', 'パン');
+$carbo = array('米', 'パン', 'イモ類');
+
+$food = array($fat, $protein, $carbo);
+
+echo $food[0][1].'<br>';
+
 $morning = array('高カロリー', '低GI食品');
 $lunch = array('中カロリー', 'バランス重視');
 $dinner = array('低カロリー', '早めに食べる');
-$wait = array('高重量低レップ', '低重量高レップ');
-$aerobic = array('ランニング', 'バイク', 'ウォーキング');
-$exercise = array('出勤前', '帰宅途中');
-$jim = array('エニタイムフィットネス', 'コナミスポーツクラブ', 'ゴールドジム');
-$hoursleep = array('寝る前にカモミールティーを飲む', '寝る２時間前に入浴', '寝る前にケータイを触らない');
-$comfortable = array('アロマをたく', '間接照明を用いる', '快適な温度管理');
 
-var_dump($meal);
+$timing = array($morning, $lunch, $dinner);
+echo $timing[0][0].'<br>';
+
+$nutrition = array($food, $timing);
+echo $nutrition[0][0][2].'<br>';
+
+
+$wait = array('高重量低レップ', '低重量高レップ');
+$aerobic = array('ランニング', 'ウオーキング', 'バイク');
+
+$training = array($wait, $aerobic);
+
+$exercise =  array('出勤前', '帰宅途中');
+$jim = array('エニタイムフィットネス','ゴールドジム','アクトス');
+
+$busy = array($exercise, $jim);
+
+$play = array($training, $busy);
+echo $play[0][0][0].'<br>';
+
+
+$sleepy = array('寝る前にカモミールティーを飲む', '寝る２時間前に入浴', '寝る前にケータイ触らない');
+$comfortable = array('アロマをたく', '間接照明をつける', '適度な温度');
+
+$quality = array($sleepy, $comfortable);
+
+$sleep = array($quality);
+echo $sleep[0][1][0].'<br>';
+
+$muscle = array($nutrition, $play, $sleep);
+echo $muscle[0][0][0][0];
